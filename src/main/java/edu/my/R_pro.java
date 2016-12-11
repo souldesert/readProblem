@@ -24,7 +24,4 @@ public class R_pro {
     @JacksonXmlProperty(localName = "t2")
     ObservableList<String> test = FXCollections.observableArrayList();
 
-
-    //String[] test;
-
 }
