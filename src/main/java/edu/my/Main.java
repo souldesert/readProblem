@@ -3,14 +3,12 @@ package edu.my;
 import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
         JacksonXmlModule module = new JacksonXmlModule();
         module.setDefaultUseWrapper(false);
@@ -19,12 +17,26 @@ public class Main {
             String xml = reader.readLine();
             R_pro readed = xmlMapper.readValue(xml, R_pro.class);
             System.out.println(readed.test);
-        } catch (IOException e){
+
+            readed.test.add("test");
+
+            write(new File("test"), readed);
+        } catch (IOException e) {
             e.printStackTrace();
         }
         //mapper.readValue()
 
 
+    }
+
+    public static void write(File directory, R_pro pr) throws IOException {
+        JacksonXmlModule module = new JacksonXmlModule();
+        module.setDefaultUseWrapper(false);
+        XmlMapper xmlMapper = new XmlMapper(module);
+        //File file = new File(directory, "project.rtran");
+        //file.createNewFile();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("test2.xml"));
+        xmlMapper.writeValue(writer, pr);
 
     }
 }

@@ -20,6 +20,13 @@ public class R_pro {
         this.test.addAll(test);
     }
 
+    public List<String> getTest() {
+ /*       ArrayList<String> list = new ArrayList<String>();
+        test.
+        list.addAll(test.toArray());*/
+        return test;
+    }
+
     //@JsonDeserialize(using = MyImmutableListDeserializer.class, as = ImmutableList.class, keyAs = int.class, contentAs = String.class)
    // @JsonView(Views.Normal.class)
     @JacksonXmlProperty(localName = "t2")
