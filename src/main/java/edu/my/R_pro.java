@@ -1,13 +1,8 @@
 package edu.my;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import com.fasterxml.jackson.datatype.guava.deser.ImmutableListDeserializer;
-import com.google.common.collect.ImmutableList;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +16,8 @@ import java.util.List;
 public class R_pro {
 
     //@JsonDeserialize(using = MyImmutableListDeserializer.class, as = ImmutableList.class, keyAs = int.class, contentAs = String.class)
+   // @JsonView(Views.Normal.class)
     @JacksonXmlProperty(localName = "t2")
-    ObservableList<String> test = FXCollections.observableArrayList();
-
+    //ObservableList<String> test = FXCollections.observableArrayList();
+            List<String> test = new ArrayList<>();
 }
